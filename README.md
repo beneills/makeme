@@ -1,4 +1,5 @@
-# Makeme
+# Makeme [![Build Status](https://travis-ci.org/beneills/makeme.svg?branch=master)](https://travis-ci.org/beneills/makeme) [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+
 Create a new file by guessing contents from filename
 
 ## Usage
