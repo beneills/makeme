@@ -13,11 +13,11 @@ module Makeme
     ! absolute_file_path.end_with?('/') || founder('File is a directory!')
 
     # Guess which template is right, or nil
-    guess_data, template_contents = Guess::guess(working_directory, absolute_file_path, options)
+    guess_data, template_contents = Guess.guess(working_directory, absolute_file_path, options)
     ! template_contents.nil? || founder('Couldn\'t guess a template for that file!')
 
     # Fill in template
-    contents = Fill::fill(working_directory, absolute_file_path, guess_data, template_contents, options)
+    contents = Fill.fill(working_directory, absolute_file_path, guess_data, template_contents, options)
 
     # Write to file
     open(absolute_file_path, 'w') do |f|

@@ -30,7 +30,7 @@ def main
   
   options = {}
   
-  Makeme::run(working_directory, absolute_file_path, options)
+  Makeme.run(working_directory, absolute_file_path, options)
 end
 
 main

@@ -1,9 +1,3 @@
-module Internal
-  def placeholder(text)
-    text.upcase
-  end
-end
-
 class FillHelpers
   def initialize(working_directory, absolute_file_path, guess_data)
     @working_directory = working_directory
@@ -15,6 +9,10 @@ class FillHelpers
     binding
   end
 
+  def placeholder(text)
+    text.upcase
+  end
+  
   def parent_directory
     parent = Pathname.new(@absolute_file_path).parent.basename
 
@@ -33,6 +31,6 @@ class FillHelpers
     Etc.getlogin
   end
   
-  def project;  heuristic_project  || Internal.placeholder("myproject"); end
-  def username; heuristic_username || Internal.placeholder("username");  end
+  def project;  heuristic_project  || placeholder("myproject"); end
+  def username; heuristic_username || placeholder("username");  end
 end
