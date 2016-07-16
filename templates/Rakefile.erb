@@ -1,0 +1,11 @@
+# See http://martinfowler.com/articles/rake.html#DefiningDependenciesBackwards
+
+task default: %w[main]
+
+task :main => :first do
+  puts 'Running the main task...'
+end
+
+task :first do
+  puts 'Running the first task...'
+end

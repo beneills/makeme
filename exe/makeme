@@ -1,5 +1,36 @@
 #!/usr/bin/env ruby
 
+require 'pathname'
+
 require 'makeme'
 
-Makeme::test
+def usage
+  'usage: makeme FILENAME'
+end
+
+def parse_args(args)
+  if args.length == 1
+    { :given_path => ARGV[0] }
+  else
+    STDERR.puts usage
+    exit 1
+  end
+end
+
+def main
+  args = parse_args(ARGV)
+
+  working_directory = Dir.pwd
+
+  absolute_file_path = if Pathname.new(args[:given_path]).absolute?
+    args[:given_path]
+  else
+    File.join working_directory, args[:given_path]
+  end
+  
+  options = {}
+  
+  Makeme::run(working_directory, absolute_file_path, options)
+end
+
+main
