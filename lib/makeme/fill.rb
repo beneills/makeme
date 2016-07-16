@@ -1,3 +1,5 @@
+require 'erb'
+
 require 'makeme/fill_helpers'
 
 module Fill
